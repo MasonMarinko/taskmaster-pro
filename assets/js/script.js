@@ -73,6 +73,21 @@ var loadTasks = function () {
         });
       });
 
+      $("#trash").droppable({
+        accept: ".card .list-group-item",
+        tolerance: "touch",
+        drop: function(event,ui) {
+          ui.draggable.remove();
+          console.log("drop");
+        },
+        over: function (event, ui) {
+          console.log("over");
+        },
+        out: function(event, ui) {
+          console.log("out");
+        }
+      });
+
       // this is where you save things once you get the information, when you refresh browser things stay
       // trim down list's ID to match object property
       var arrName = $(this)
